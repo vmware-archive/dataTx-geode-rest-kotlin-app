@@ -1,33 +1,39 @@
  # DataTx Geode kotlin REST API
 
-This is an Spring Boot based app that provides the following GemFire features 
-- POST region with region key and value to put data into a region
+This is an Spring Boot based app that provides the following [Apache Geode](https://geode.apache.org/) features 
+- POST region with region key and value to put data into a [region](https://geode.apache.org/docs/guide/basic_config/data_regions/chapter_overview.html)
 - GET region name and key to read
 
 When starting the application you must provide the ENVironment
 
-- LOCATOR_HOST=**public IP address or Public Host Name**
-- LOCATOR_PORT =**Locator Port**
-- name =**Client Name**
+- spring_data_gemfire_pool_locators=host1[port],host2[port]   (comma separated)
+- spring_security_user_name=Authentication user
+- spring_security_user_password=Authentication password
+- spring_data_gemfire_name =**Client Name**
 
 
 Example 
 	
-	export LOCATOR_HOST=localhost
-	export LOCATOR_PORT=10334
-	export name=GEDI_GEDI_REST_CLIENT
+	export spring_data_gemfire_pool_locators=localhost[10334]
+	export spring_security_user_name=admin
+	export spring_security_user_password=admin
+	export spring_data_gemfire_name=GEODE_REST_CLIENT
 	
-	
-The following are optional settings
-	
-	export POOL_PR_SINGLE_HOP_ENABLED=true
 
+**Secured Apache Geode Authentication**
+
+When connecting to a Apache Geode cluster with security enabled, set the following spring
+properties. Note that is can be different then the spring_security_user_name/spring_security_user_password
+properties.
+
+    spring.data.gemfire.security.username=...
+    spring.data.gemfire.security.password=...
 
 
 # REST Region Service
 
 The URL http://**root**/region prefix exposes a REST interface to preform READ/WRITE 
-operations on a GemFire region.
+operations on a Apache Geode region.
 
 
 # POST region
@@ -78,7 +84,7 @@ RESPONSE
 
 # Query
 
-Perform a GemFire query operation
+Perform a Apache Geode
 http://host:port/query 
 
 * Note the select assumes the results of PdxInstances 

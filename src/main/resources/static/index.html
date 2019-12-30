@@ -1,6 +1,5 @@
 <pre>
-<h1>Grid Enterprise Data Integration</h1>
-<h2>Geode Extensions Data Services</h2>
+<h1s>Data Extensions Data Services</h1s>
 
 Rest Data service example code repository
 
@@ -26,10 +25,10 @@ See <a href="https://gemfire.docs.pivotal.io/gemfire/getting_started/installatio
 
 Examples
 
-    security-username=user
-    security-password=password
-	LOCATOR_HOST= 192.168.40.140
-	LOCATOR_PORT = port
+    spring_data_gemfire_pool_locators=server1[10334],server2[10334]
+	spring_security_user_name=admin
+	spring_security_user_password=admin
+	spring_data_gemfire_name=MyAppName
 
 <h1> Example Data Services</h1>
 
@@ -42,12 +41,19 @@ This is an example Spring Boot based app that provides the following GemFire fea
 <li>GET region name and key to read.</li>
 
 
-When starting the application you must provide the ENVironment
+When starting the application you must provide the Spring Properties. Note that
+	spring support Java System properties, application.yml or application.properites
+	or System environments.
 
-	- name=<strong>GemFire client name</strong>
-	- LOCATOR_HOST=<strong>public IP address or Public Host Name</strong>
-	- LOCATOR_PORT =<strong>Locator Port</strong>
-
-
+	spring.data.gemfire.pool.locators=localhost[10334]
+	spring.security.user.name=admin
+	spring.security.user.password=admin
+	spring.data.gemfire.name=AppName
 
 </pre>
+
+<h2>Testing</h2>
+
+<div>
+	<a href="swagger-ui.html">Swagger UI</a>
+</div>s
