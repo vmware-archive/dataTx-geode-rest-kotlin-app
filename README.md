@@ -1,8 +1,22 @@
  # DataTx Geode kotlin REST API
 
-This is an Spring Boot based app that provides the following [Apache Geode](https://geode.apache.org/) features 
+This is an Spring Boot based app written in [Kotlin](https://kotlinlang.org/) that provides the following [Apache Geode](https://geode.apache.org/) features 
 - POST region with region key and value to put data into a [region](https://geode.apache.org/docs/guide/basic_config/data_regions/chapter_overview.html)
 - GET region name and key to read
+- Query against Apache Geode Regions
+
+
+*Latest Features*
+
+- Uses pure PDX instances without dependencies on having Java Classes in CLASSPATH
+- Queries PDX (select * from /region) or Core Java datatypes (select field1, field2 from /region)
+- Supports region CRUD operations
+- Authentication endpoint with configurable username/password
+- Swagger test UI
+- Uses [Spring Data Geode](https://spring.io/projects/spring-data-geode)
+
+
+# Startup
 
 When starting the application you must provide the ENVironment
 
@@ -36,7 +50,7 @@ The URL http://**root**/region prefix exposes a REST interface to preform READ/W
 operations on a Apache Geode region.
 
 
-# POST region
+## POST region
 
 Put a  key/value entry into a given region.
 
@@ -62,7 +76,7 @@ RESPONSE
 
 
 
-# GET region
+## GET region
 
 Get a region value based on a given key
 
