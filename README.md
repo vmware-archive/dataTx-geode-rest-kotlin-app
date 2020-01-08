@@ -1,4 +1,4 @@
- # DataTx Geode kotlin REST API
+ # DataTx Apache Geode Kotlin REST API
 
 This is an Spring Boot based app written in [Kotlin](https://kotlinlang.org/) that provides the following [Apache Geode](https://geode.apache.org/) features 
 - POST region with region key and value to put data into a [region](https://geode.apache.org/docs/guide/basic_config/data_regions/chapter_overview.html)
